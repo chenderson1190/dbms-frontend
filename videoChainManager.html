@@ -1,0 +1,111 @@
+<Html>
+<!--This is to send a query, which will be picked up and processed by -->
+<!--another script.php -->
+<Head>
+<Style Type="text/css">
+<!--
+Body, P, TD {color: black; font-family: verdana; font-size: 10 pt}
+H1 {color: black; font-family: arial; font-size:12 pt}
+-->
+</Style>
+</Head>
+<!--A table with only one row, consisting of two cells, the first being the -->
+<!--left edge, 1/6; and the other contains the form, 5/6 -->
+<Table Border=0 cellPadding=10 Width=100%>
+<!--Now define the row-->
+<Tr>
+<!--The following cell shows the left cushion edge-->
+<Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
+<!--The following gives the right entry form part, completely white-->
+<Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
+<H1>Video Chain</H1>
+<p>The following button find customers at any store.</p>
+<Form Method="post" Action="customers.php">
+<!--First input box, with a name "table", thus earmarked with the name -->
+<!-- $_POST[’table’] in the handler. The value will be filled in by the user -->
+<!--<select> </select> will pick an optional item and pass on.-->
+<select name="table" required>
+<Option>Plymouth</Option>
+<Option>Kaer Morhen</Option>
+<Option>Tokyo</Option>
+<Option>New York</Option>
+<Option>Nether</Option>
+<Option>City 17</Option>
+<Option>Manchester</Option>
+</select>
+
+<!--The sumbit button, with the name being $_POST[’submit’], -->
+<!--and the message shown being ’Submit’-->
+<!--When clicked, the filled query is sent over -->
+<Input Type="submit" Name="submit" Value="Show result">
+</Form>
+<hr>
+
+<p>The following button find vendors who supplies any movie and the quantity.</p>
+
+<Form Method="post" Action="movieStock.php">
+<BR><BR>
+
+<select name="movie" required>
+<Option> A Night At The Roxbury</Option>
+<Option> As Good As It Gets</Option>
+<Option> Barbie Birthday Party 1994</Option>
+<Option> DeathStalker</Option>
+<Option> Die Hard</Option>
+<Option> Everythings Archie</Option>
+<Option> Gidget</Option>
+<Option> I LOVE TOY TRAINS 4</Option>
+<Option> Kiss The Girls</Option>
+<Option> NSYNC: Live From Madison Square Garden</Option>
+<Option> Pocahontas 2</Option>
+<Option> Pokemon: The Movie!</Option>
+<Option> Sesame Street: Get Up And Dance!</Option>
+<Option> Star Trek 2: The Wrath of Kahn</Option>
+<Option> Stargate</Option>
+<Option> The Best of Victor Borge</Option>
+<Option> The Land Before Time</Option>
+<Option> The Last StarFighter</Option>
+<Option> The Matrix</Option>
+<Option> The Scottish Fiddle Orchestra</Option>
+<Option> Titanic</Option>
+<Option> Veggie Tales: Larry-Boy! And The Fib Fro</Option>
+
+</select>
+
+<Input Type="submit" Name="submit" Value="Show Result">
+</Form>
+<hr>
+
+<p>The following button finds all movies provided by '20th Century Fox'.</p>
+
+<Form Method="post" Action="moviesFox.php">
+<BR><BR>
+
+<Input Type="submit" Name="submit" Value="Fox Movies">
+</Form>
+<hr>
+
+<p>The following button find if your store has what movie.</p>
+
+<Form Method="post" Action="movieStock.php">
+<BR><BR>
+
+<select name="location" required>
+<Option>Plymouth</Option>
+<Option>Kaer Morhen</Option>
+<Option>Tokyo</Option>
+<Option>New York</Option>
+<Option>Nether</Option>
+<Option>City 17</Option>
+<Option>Manchester</Option>
+
+</select>
+
+<Input Type="submit" Name="submit" Value="Show Result">
+</Form>
+<hr>
+
+</Tr>
+</Table>
+</Body>
+</Html>
