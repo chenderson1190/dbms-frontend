@@ -76,29 +76,57 @@ H1 {color: black; font-family: arial; font-size:12 pt}
 </Form>
 <hr>
 
-<p>The following button finds all movies provided by '20th Century Fox'.</p>
+<p>The following button finds all movies provided by each vendor.</p>
 
-<Form Method="post" Action="moviesFox.php">
-<BR><BR>
+<Form Method="post" Action="vendorMovies.php">
+<!--First input box, with a name "table", thus earmarked with the name -->
+<!-- $_POST[’table’] in the handler. The value will be filled in by the user -->
+<!--<select> </select> will pick an optional item and pass on.-->
+<select name="table" required>
+<Option>Gary Gygax</Option>
+<Option>Walt Disney</Option>
+<Option>Warner Bros.</Option>
+<Option>Sony Pictures</Option>
+<Option>Universal</Option>
+<Option>20th Century Fox</Option>
+<Option>Paramount Pictures</Option>
+<Option>Lionsgate</Option>
+<Option>Funimation</Option>
+<Option>Lavender House Films</Option>
+</select>
 
-<Input Type="submit" Name="submit" Value="Fox Movies">
+<!--The sumbit button, with the name being $_POST[’submit’], -->
+<!--and the message shown being ’Submit’-->
+<!--When clicked, the filled query is sent over -->
+<Input Type="submit" Name="submit" Value="Show result">
 </Form>
 <hr>
 
-<p>The following button find if your store has what movie.</p>
+<p>The following button gives you what type of employee id at which store.</p>
 
-<Form Method="post" Action="movieStock.php">
+<Form Method="post" Action="storeEmployees.php">
 <BR><BR>
 
-<select name="location" required>
+<select name="employeeLoc" required>
 <Option>Plymouth</Option>
+<Option>Bristol</Option>
 <Option>Kaer Morhen</Option>
 <Option>Tokyo</Option>
 <Option>New York</Option>
+<Option>Nottingham</Option>
 <Option>Nether</Option>
+<Option>Haverhill</Option>
 <Option>City 17</Option>
 <Option>Manchester</Option>
+<Option>Salado</Option>
 
+</select>
+
+<select name="employeePos" required>
+<Option>Staff-Member</Option>
+<Option>Janitor</Option>
+<Option>Manager</Option>
+<Option>All</Option>
 </select>
 
 <Input Type="submit" Name="submit" Value="Show Result">
