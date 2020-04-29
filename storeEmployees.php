@@ -26,23 +26,25 @@ mysqli_select_db($connect, $database);
 <?php
 $store_employeeLoc = $_POST['employeeLoc'];
 $employeePos = $_POST['employeePos'];
-
+	
 if ($employeePos == 'All'){
-	$query="Select Distinct S.Name, Position, EName From Stores S,
+	$query = "Create or Replace View employeeTable as Select Distinct S.Name, Position, EName, EID From Stores S,
 	Employees E Where S.SID = E.SID AND S.Name = '$store_employeeLoc';";
+	$query1 = "Select * from employeeTable;";
 	echo "<h1>The following displays all employees of $store_employeeLoc</h1>";
 }
 
 else {
-$query="Select Distinct S.Name, Position, EName From Stores S,
+$query="Create or Replace View employeeTable as Select Distinct S.Name, Position, EName, EID From Stores S,
  Employees E Where S.SID = E.SID AND S.Name = '$store_employeeLoc'
  AND E.Position = '$employeePos';";
+ $query1 = "Select * from employeeTable;";
 echo "<h1>The following displays the $employeePos of $store_employeeLoc</h1>";
 }
 
 echo "<br>";
-
-display_db_query($query, $connect,True,2);
+mysqli_query($connect, $query);
+display_db_query($query1, $connect,True,2);
 
 mysqli_close($connect);
 ?>
