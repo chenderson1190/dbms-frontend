@@ -1,4 +1,5 @@
 <?php
+
 include("phpbook-vars.inc");
 
 include("displayDBQueryField.inc");
@@ -11,7 +12,7 @@ mysqli_select_db($connect, $database);
 ?>
 <Html>
 <Head>
-<Title>Rent a Movie!</Title>
+<Title>Die Hard Stock</Title>
 </Head>
 <Body>
 
@@ -24,15 +25,14 @@ mysqli_select_db($connect, $database);
 <Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
 
 <?php
-//$movie_name = $_POST['movie'];
-$query0='Create or Replace View Rentable 
-as select M.Name 
-from Movies M,Stores S 
-where M.SID=S.SID and M.SID=S.SID and S.Name="Kaer Morhen";';
-$query1="SELECT * FROM Rentable;";
-echo "<h1>The following displays the stock of plymouth store depending on which store is selected.</h1>";
+$vendor_name = $_POST['table'];
+$query="Create or Replace View vendorStock as Select VendorName, Name From Vendors V, Movies M Where VendorName = '$vendor_name' AND M.VID = V.VendorId;";
+$query1 = "Select * from vendorStock;";
+
+echo "<h1>The following displays the movies $vendor_name has</h1>";
 echo "<br>";
-mysqli_query($connect, $query0);
+
+mysqli_query($connect, $query);
 display_db_query($query1, $connect,True,2);
 
 mysqli_close($connect);
