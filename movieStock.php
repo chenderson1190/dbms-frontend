@@ -25,11 +25,14 @@ mysqli_select_db($connect, $database);
 
 <?php
 $movie_name = $_POST['movie'];
-$query="Select VendorName, M.Name, M.Stock From Vendors V, Movies M Where M.Name = '$movie_name' AND M.VID = V.VendorId;";
+$query="Create or Replace View movieStock as Select VendorName, M.Name, M.Stock From Vendors V, Movies M Where M.Name = '$movie_name' AND M.VID = V.VendorId;";
+$query1 = "Select * from movieStock;";
+
 echo "<h1>The following displays the stock of $movie_name from which vendor</h1>";
 echo "<br>";
 
-display_db_query($query, $connect,True,2);
+mysqli_query($connect, $query);
+display_db_query($query1, $connect,True,2);
 
 mysqli_close($connect);
 ?>
