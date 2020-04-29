@@ -12,7 +12,7 @@ mysqli_select_db($connect, $database);
 ?>
 <Html>
 <Head>
-<Title>Die Hard Stock</Title>
+<Title>Vendor Movies</Title>
 </Head>
 <Body>
 
@@ -25,12 +25,15 @@ mysqli_select_db($connect, $database);
 <Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
 
 <?php
+$vendor_name = $_POST['table'];
+$query="Create or Replace View vendorStock as Select VendorName, Name From Vendors V, Movies M Where VendorName = '$vendor_name' AND M.VID = V.VendorId;";
+$query1 = "Select * from vendorStock;";
 
-$query="Select VendorName, Name From Vendors V, Movies M Where VendorName = '20th Century Fox' AND M.VID = V.VendorId;";
-echo "<h1>The following displays the movies '20th Century Fox' has</h1>";
+echo "<h1>The following displays the movies $vendor_name has</h1>";
 echo "<br>";
 
-display_db_query($query, $connect,True,2);
+mysqli_query($connect, $query);
+display_db_query($query1, $connect,True,2);
 
 mysqli_close($connect);
 ?>
