@@ -1,46 +1,45 @@
 <?php
+  include("phpbook-vars.inc");
 
-include("phpbook-vars.inc");
+  include("displayDBQueryField.inc");
 
-include("displayDBQueryField.inc");
+  $database="Team1";
 
-$database="Team1";
+  $connect=mysqli_connect($hostname, $user, $password);
 
-$connect=mysqli_connect($hostname, $user, $password);
-
-mysqli_select_db($connect, $database);
+  mysqli_select_db($connect, $database);
 ?>
 <Html>
-<Head>
-<Title>Customers</Title>
-</Head>
-<Body>
+  <Head>
+    <Title>Rent a Movie!</Title>
+  </Head>
+  <Body>
 
-<Table Border=0 cellPadding=10 Width=100%>
+    <Table Border=0 cellPadding=10 Width=100%>
 
-<Tr>
+      <Tr>
 
-<Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
+        <Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
 
-<Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
+        <Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
 
-<?php
-$table_name = $_POST['store'];
-$query="Create or Replace View customerSelect as Select Distinct CName From Customers C, Rentals R, Stores S
- Where S.Name = '$table_name' AND S.SID = R.SID AND R.CID = C.CID";
-$query1 = "Select * from customerSelect;";
+          <?php
+          $store_name = $_POST['store'];
+          $query0="CREATE OR REPLACE VIEW Rentable
+          AS SELECT M.Name
+          FROM Movies M,Stores S
+          WHERE M.SID=S.SID AND M.SID=S.SID AND S.Name='$store_name';";
+          $query1="SELECT * FROM Rentable;";
+          echo "<h1>The following displays the stock of the $store_name store.</h1>";
+          echo "<br>";
+          mysqli_query($connect, $query0);
+          display_db_query($query1, $connect,True,2);
 
-echo "<h1>The following displays the customers from the $table_name Store</h1>";
-echo "<br>";
+          mysqli_close($connect);
+          ?>
+        </Td>
 
-mysqli_query($connect, $query);
-display_db_query($query1, $connect,True,2);
-
-mysqli_close($connect);
-?>
-</Td>
-
-</Tr>
-</Table>
-</Body>
+      </Tr>
+    </Table>
+  </Body>
 </Html>
