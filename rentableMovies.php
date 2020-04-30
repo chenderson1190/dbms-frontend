@@ -51,9 +51,22 @@
          $movie_name = $rows['Name'];
          echo "<option value='$movie_name'>$movie_name</option>";
        }
-       mysqli_close($connect);
         ?>
      </select>
+     <?php
+     $resultSet = mysqli_query($connect, "Select CName from Customers;");
+      ?>
+      <Form Method="post" Action="rentHandler.php">
+      <select name="Customers">
+        <?php
+        while($rows = $resultSet->fetch_assoc())
+        {
+          $cust_name = $rows['CName'];
+          echo "<option value='$cust_name'>$cust_name</option>";
+        }
+        mysqli_close($connect);
+         ?>
+      </select>
      <input type="submit" name="Click to Rent!" value="Rent">
   </Body>
 </Html>
