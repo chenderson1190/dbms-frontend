@@ -1,0 +1,23 @@
+<Html>
+  <Head>
+    <Title>Rent a Movie!</Title>
+  </Head>
+  <Body>
+    <h1>Select a store to see what movies are rentable:</h1>
+    <!-- TODO: Add a dropdown menu with a selection for each
+    store and a submit button which sends the query with the
+    selected store as the $store_name variable in a POST -->
+    <Form Method="post" Action="rentableMovies.php">
+      <select name="store" required>
+        <Option>Plymouth</Option>
+        <Option>Kaer Morhen</Option>
+        <Option>Tokyo</Option>
+        <Option>New York</Option>
+        <Option>Nether</Option>
+        <Option>City 17</Option>
+        <Option>Manchester</Option>
+      </select>
+      <Input Type="submit" Name="submit" Value="Show result">
+    </form>
+  </Body>
+</Html>
