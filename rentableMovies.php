@@ -34,12 +34,26 @@
           echo "<br>";
           mysqli_query($connect, $query0);
           display_db_query($query1, $connect,True,2);
-
-          mysqli_close($connect);
           ?>
         </Td>
 
       </Tr>
     </Table>
+    <!-- TODO: Make rentHandler.php -->
+    <?php
+    $resultSet = mysqli_query($connect, "Select Name from Rentable;");
+     ?>
+     <Form Method="post" Action="rentHandler.php">
+     <select name="Movies">
+       <?php
+       while($rows = $resultSet->fetch_assoc())
+       {
+         $movie_name = $rows['Name'];
+         echo "<option value='$movie_name'>$movie_name</option>";
+       }
+       mysqli_close($connect);
+        ?>
+     </select>
+     <input type="submit" name="Click to Rent!" value="Rent">
   </Body>
 </Html>

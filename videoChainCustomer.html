@@ -4,9 +4,6 @@
   </Head>
   <Body>
     <h1>Select a store to see what movies are rentable:</h1>
-    <!-- TODO: Add a dropdown menu with a selection for each
-    store and a submit button which sends the query with the
-    selected store as the $store_name variable in a POST -->
     <Form Method="post" Action="rentableMovies.php">
       <select name="store" required>
         <Option>Plymouth</Option>
@@ -19,5 +16,8 @@
       </select>
       <Input Type="submit" Name="submit" Value="Show result">
     </form>
+    <!-- TODO: Make a rent funcionality, implement using update and add/remove
+    queries from the Rentals table, and Movies table. -->
+    <h1>
   </Body>
 </Html>
