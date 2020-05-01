@@ -1,14 +1,10 @@
-<?php
-	echo "<br>";
-	echo "<h1>Want to Hire Someone? Fill out everything below and click Submit!</h1>";
-?>
+
 <Html>
 <Head>
-<Title>Terminate Employee</Title>
 <link href="style.css" rel="stylesheet" Type="text/css">
+<Title>Hire Employee</Title>
 </Head>
 <Body>
-
 <Table Border=0 cellPadding=10 Width=100%>
 
 <Tr>
@@ -16,6 +12,8 @@
 <Td BGColor="FFFF00" Align=Center VAlign=top Width=17%> </Td>
 
 <Td BGColor="000000" Align=Left VAlign=Top Width=83%>
+
+<h1>Want to Hire Someone? Fill out everything below and click Submit!</h1>
 
 	<Form Method="post" Action="hireHandler.php">
 <select name="employeeLoc" required>

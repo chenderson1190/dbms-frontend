@@ -12,7 +12,7 @@ mysqli_select_db($connect, $database);
 ?>
 <Html>
 <Head>
-<Title>Die Hard Stock</Title>
+<Title>Vendor Stock</Title>
 <link href="style.css" rel="stylesheet" Type="text/css">
 </Head>
 <Body>
