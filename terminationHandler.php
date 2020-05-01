@@ -12,7 +12,7 @@ mysqli_select_db($connect, $database);
 ?>
 <Html>
 <Head>
-<Title>Customers</Title>
+<Title>Terminate Employee Complete</Title>
 </Head>
 <Body>
 
@@ -25,22 +25,21 @@ mysqli_select_db($connect, $database);
 <Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
 
 <?php
-$table_name = $_POST['table'];
-$query="Create or Replace View customerSelect as Select Distinct CName From Customers C, Rentals R, Stores S
- Where S.Name = '$table_name' AND S.SID = R.SID AND R.CID = C.CID";
-$query1 = "Select * from customerSelect;";
 
-echo "<h1>The following displays the customers from the $table_name Store</h1>";
+$employee_Name = $_POST['EmployeeName'];
+
+$query = "Delete from Employees Where EName = '$employee_Name';";
+echo "<h1>$employee_Name has been terminated.</h1>";
 echo "<br>";
 
 mysqli_query($connect, $query);
-display_db_query($query1, $connect,True,2);
-
 mysqli_close($connect);
+echo "<br>";
+echo "Click back to return to the Manager page";
 ?>
-</Td>
+<Form Method="post" Action="videoChainManager.html">
+<input type="submit" name="Back" value="Back">
 
-</Tr>
 </Table>
 </Body>
 </Html>

@@ -18,7 +18,7 @@ H1 {color: black; font-family: arial; font-size:12 pt}
 <Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
 <!--The following gives the right entry form part, completely white-->
 <Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
-<H1>Video Chain</H1>
+<H1>Video Chain (Manager Side)</H1>
 <p>The following button find customers at any store.</p>
 <Form Method="post" Action="customers.php">
 <!--First input box, with a name "table", thus earmarked with the name -->
@@ -102,11 +102,35 @@ H1 {color: black; font-family: arial; font-size:12 pt}
 </Form>
 <hr>
 
-<p>The following button gives you what type of employee id at which store.</p>
+<p>The following button gives you the employees which store.</p>
 
 <Form Method="post" Action="storeEmployees.php">
-<BR><BR>
+<BR>
 
+<select name="storeEmployeeLoc" required>
+<Option>Plymouth</Option>
+<Option>Bristol</Option>
+<Option>Kaer Morhen</Option>
+<Option>Tokyo</Option>
+<Option>New York</Option>
+<Option>Nottingham</Option>
+<Option>Nether</Option>
+<Option>Haverhill</Option>
+<Option>City 17</Option>
+<Option>Manchester</Option>
+<Option>Salado</Option>
+
+</select>
+
+<Input Type="submit" Name="submit" Value="Show Result">
+</Form>
+<hr>
+
+<p>Need to terminate an employee? Select your store and then enter the next page to see every employee.</p>
+<Form Method="post" Action="terminateEmployee.php">
+<!--First input box, with a name "table", thus earmarked with the name -->
+<!-- $_POST[’table’] in the handler. The value will be filled in by the user -->
+<!--<select> </select> will pick an optional item and pass on.-->
 <select name="employeeLoc" required>
 <Option>Plymouth</Option>
 <Option>Bristol</Option>
@@ -122,16 +146,14 @@ H1 {color: black; font-family: arial; font-size:12 pt}
 
 </select>
 
-<select name="employeePos" required>
-<Option>Staff-Member</Option>
-<Option>Janitor</Option>
-<Option>Manager</Option>
-<Option>All</Option>
-</select>
-
-<Input Type="submit" Name="submit" Value="Show Result">
+<Input Type="submit" Name="submit" Value="Show Employees">
 </Form>
 <hr>
+
+<p>Need to Hire an employee? Select your store and then enter the next page to see every employee.</p>
+<Form Method="post" Action="hireEmployee.php">
+<input type="submit" name="Back" value="Hiring">
+
 
 </Tr>
 </Table>
