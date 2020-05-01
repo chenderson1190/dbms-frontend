@@ -1,9 +1,14 @@
 <Html>
   <Head>
+    <!-- This is a portal for the customers of Video Chain to be able to sign
+    up and get added to the customer database, and rent a movie
+    from any one of our locations. -->
     <Title>Rent a Movie!</Title>
+    <link rel="stylesheet" href="style.css">
   </Head>
-  <Body>
-    <h1>Select a store to see what movies are rentable:</h1>
+  <Body style="text-align:center">
+    <h1>Welcome to Video Chain valued customer</h1>
+    <h2>Select a store to see what movies are rentable:</h2>
     <Form Method="post" Action="rentableMovies.php">
       <select name="store" required>
         <Option>Plymouth</Option>
@@ -16,8 +21,6 @@
       </select>
       <Input Type="submit" Name="submit" Value="Show result">
     </form>
-    <!-- TODO: Make a rent funcionality, implement using update and add/remove
-    queries from the Rentals table, and Movies table. -->
     <h1><a href=customerSignUp.html>Sign up!</a></h1>
   </Body>
 </Html>

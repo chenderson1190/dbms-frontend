@@ -1,13 +1,22 @@
 <html>
   <head>
+    <!-- This is a page for the customer to enter their info and
+    pass it on to signUpHandler.php, where it will then add it to the database.
+    -->
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div style="text-align:center">
+      <h2>Please Sign Up so that you can rent a movie later!</h2>
     <Form action='signUpHandler.php' method='post' enctype='multipart/form-data'>
-      <p>Name
+      <p>Name<br>
         <input name='name' type='text' placeholder='name' required
         autofocus></p>
-        <input name='phone' type='text' placeholder='Phone Number' required></p>
+        <p>Phone Number<br>
+          <input name='phone' type='text' placeholder='Phone Number' required></p>
         <p><input name="submit" type="submit"></p>
       </form>
+    </div>
   </body>
 </html>

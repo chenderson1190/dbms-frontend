@@ -11,7 +11,11 @@
 ?>
 <Html>
   <Head>
+    <!-- This page shows the rentable movies for the selected store in
+    videoChainCustomer.html, it also allows a customer to select
+    themselves from a list of customers, and rent a movie. -->
     <Title>Rent a Movie!</Title>
+    <link rel="stylesheet" href="style.css">
   </Head>
   <Body>
 
@@ -39,10 +43,12 @@
 
       </Tr>
     </Table>
-    <!-- TODO: Make rentHandler.php -->
+    <!-- Retrieve Items from the database as an array
+     and populate a dropdown menu with them.-->
     <?php
     $resultSet = mysqli_query($connect, "Select Name from Rentable;");
      ?>
+
      <Form Method="post" Action="rentHandler.php">
      <select name="Movies">
        <?php
@@ -53,11 +59,14 @@
        }
         ?>
      </select>
+
      <?php
      $resultSet = mysqli_query($connect, "Select CName from Customers;");
       ?>
+
       <Form Method="post" Action="rentHandler.php">
       <select name="Customers">
+
         <?php
         while($rows = $resultSet->fetch_assoc())
         {
@@ -66,6 +75,7 @@
         }
         mysqli_close($connect);
          ?>
+
       </select>
      <input type="submit" name="Click to Rent!" value="Rent">
   </Body>

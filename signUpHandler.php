@@ -1,4 +1,6 @@
 <?php
+// A php script to handle the signup portion of our website, using post
+// data from customerSignUp.html 
 include("phpbook-vars.inc");
 
 include("displayDBQueryField.inc");
