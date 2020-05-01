@@ -13,6 +13,7 @@ mysqli_select_db($connect, $database);
 <Html>
 <Head>
 <Title>Terminate Employee</Title>
+<link href="style.css" rel="stylesheet" Type="text/css">
 </Head>
 <Body>
 
@@ -20,9 +21,9 @@ mysqli_select_db($connect, $database);
 
 <Tr>
 
-<Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
+<Td BGColor="FFFF00" Align=Center VAlign=top Width=17%> </Td>
 
-<Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
+<Td BGColor="000000" Align=Left VAlign=Top Width=83%>
 
 <?php
 $store_employeeLoc = $_POST['employeeLoc'];
