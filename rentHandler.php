@@ -22,5 +22,5 @@ mysqli_query($connect, "update Rentals, Customers set Rentals.CID=Customers.CID 
 mysqli_query($connect, "Update Rentals, Movies set Rentals.SID=Movies.SID where Movie='$movie_name' AND Rentals.Movie=Movies.Name AND DueDate='$duedate';");
 
 mysqli_close($connect);
-header ("refresh:1; url=rentableMovies.php");
+header ("refresh:1; url=videoChainCustomer.html");
 ?>
