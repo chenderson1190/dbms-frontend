@@ -26,11 +26,15 @@ mysqli_select_db($connect, $database);
 
 <?php
 $table_name = $_POST['table'];
-$query="Select Distinct CName From Customers C, Rentals R, Stores S Where S.Name = '$table_name' AND S.SID = R.SID AND R.CID = C.CID";
+$query="Create or Replace View customerSelect as Select Distinct CName From Customers C, Rentals R, Stores S
+ Where S.Name = '$table_name' AND S.SID = R.SID AND R.CID = C.CID";
+$query1 = "Select * from customerSelect;";
+
 echo "<h1>The following displays the customers from the $table_name Store</h1>";
 echo "<br>";
 
-display_db_query($query, $connect,True,2);
+mysqli_query($connect, $query);
+display_db_query($query1, $connect,True,2);
 
 mysqli_close($connect);
 ?>

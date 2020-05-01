@@ -1,0 +1,43 @@
+<Html>
+<!--This is to send a query, which will be picked up and processed by -->
+<!--another script.php -->
+<Head>
+<Style Type="text/css">
+<!--
+Body, P, TD {color: black; font-family: verdana; font-size: 10 pt}
+H1 {color: black; font-family: arial; font-size:12 pt}
+-->
+</Style>
+</Head>
+<!--A table with only one row, consisting of two cells, the first being the -->
+<!--left edge, 1/6; and the other contains the form, 5/6 -->
+<Table Border=0 cellPadding=10 Width=100%>
+<!--Now define the row-->
+<Tr>
+<!--The following cell shows the left cushion edge-->
+<Td BGColor="F0F8FF" Align=Center VAlign=top Width=17%> </Td>
+<!--The following gives the right entry form part, completely white-->
+<Td BGColor="FFFFFF" Align=Left VAlign=Top Width=83%>
+<H1>Video Chain (Manager Side)</H1>
+<p>Go to Manager Webpage.</p>
+<Form Method="post" Action="videoChainManager.html">
+<Input Type="submit" Name="submit" Value="Submit">
+</Form>
+<hr>
+
+<p>Go to Employee Webpage.</p>
+<Form Method="post" Action="videoChainEmployee.html">
+<Input Type="submit" Name="submit" Value="Submit">
+</Form>
+<hr>
+
+<p>Go to Customer Webpage.</p>
+<Form Method="post" Action="videoChainCustomer.html">
+<Input Type="submit" Name="submit" Value="Submit">
+</Form>
+<hr>
+
+</Tr>
+</Table>
+</Body>
+</Html>
